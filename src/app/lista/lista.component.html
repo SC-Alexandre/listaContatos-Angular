@@ -5,7 +5,7 @@
 </div>
 
 <ul>
-  <li *ngFor="let contato of listaContatos">{{contato.id}},{{contato.name}} <button (click)="deletar(contato.id)">Deletar</button> | <button (click)="detalhar(contato.id)">Detalhar</button></li>
+  <li *ngFor="let contato of listaContatos">{{contato.id}},{{contato.name}}, {{contato.phone}} <button (click)="deletar(contato.id)">Deletar</button> | <button (click)="detalhar(contato.id)">Detalhar</button></li>
 </ul>
 
 <a routerLink="/formulario">Cadastrar Contato</a> |

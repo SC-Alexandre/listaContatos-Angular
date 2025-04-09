@@ -9,10 +9,9 @@ import {ContatoService} from '../services/contato.service';
   styleUrl: './info-contato.component.css'
 })
 export class InfoContatoComponent {
-  contato : Contato;
+  /*contato : Contato;
 
   constructor(private service : ContatoService) {
-    this.contatos = this.service.
-  }
-
+    this.contatos = this.service.filter();
+  }*/
 }

@@ -24,6 +24,6 @@ export class ListaComponent {
   }
 
   detalhar(id: number) {
-
   }
+
 }
