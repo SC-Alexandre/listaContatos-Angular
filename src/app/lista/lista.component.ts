@@ -15,13 +15,20 @@ export class ListaComponent {
   listaContatos: Contato[] = [];
 
   constructor(private service : ContatoService) {
-    this.listaContatos = this.service.listaContatos;
+    this.service.listarContatos().subscribe(contatos => this.listaContatos = contatos);
   }
 
-  deletar(id :number) {
-    this.service.remove(id);
-    this.listaContatos = this.service.listaContatos;
+  deletar(id: number) {
+    this.service.remove(id).subscribe({
+      next: () => {
+        this.service.listarContatos().subscribe(contatos => this.listaContatos = contatos);
+      },
+      error: (erro) => {
+        console.error('Erro ao deletar contato:', erro);
+      }
+    });
   }
+
 
   detalhar(id: number) {
   }

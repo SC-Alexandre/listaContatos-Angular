@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import {Contato} from '../models/contato';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ContatoService {
   listaContatos: Contato[] = [];
   private currentId: number = 1;
+  url: string = 'http://localhost:8080'
+
+  constructor(private http: HttpClient) {
+  }
 
   add(contato : Contato){
 
@@ -26,16 +33,17 @@ export class ContatoService {
       return;
     }
 
-    contato.id = this.currentId;
-    this.listaContatos.push(contato)
-    this.currentId++;
+    contato.id = this.currentId++;
+    return this.http.post<Contato>(this.url + '/contato', contato);
+  }
+
+  listarContatos(): Observable<Contato[]> {
+    return this.http.get<Contato[]>(this.url + '/contato');
   }
 
   remove(id : number){
-    console.log(id)
-    this.listaContatos = this.listaContatos.filter(contato=> contato.id !== id)
-    console.log(this.listaContatos)
-
+    //this.listaContatos = this.listaContatos.filter(contato=> contato.id !== id)
+    return this.http.delete<void>(this.url + '/contato/' + id);
   }
 
   filter(parametro: any){
@@ -47,5 +55,4 @@ export class ContatoService {
     }
   }
 
-  constructor() { }
 }

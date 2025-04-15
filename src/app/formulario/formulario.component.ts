@@ -18,7 +18,19 @@ export class FormularioComponent {
   constructor(private service : ContatoService) {}
 
   salvar() {
-    this.service.add({id:this.id, name:this.name, email:this.email, phone: this.phone});
+    this.service.add({
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      phone: this.phone
+    })?.subscribe({
+      next: (contato) => {
+        console.log('Contato salvo com sucesso:', contato);
+      },
+      error: (erro) => {
+        console.error('Erro ao salvar o contato:', erro);
+      }
+    });
   }
 
 }

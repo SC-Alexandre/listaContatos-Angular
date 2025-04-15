@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {Contato} from '../models/contato';
 import {ContatoService} from '../services/contato.service';
 
@@ -9,9 +10,12 @@ import {ContatoService} from '../services/contato.service';
   styleUrl: './info-contato.component.css'
 })
 export class InfoContatoComponent {
-  /*contato : Contato;
+  /*contato?: Contato;
 
-  constructor(private service : ContatoService) {
-    this.contatos = this.service.filter();
+  constructor(private route: ActivatedRoute, private service: ContatoService) {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service.listarContatos().subscribe(contatos => {
+      this.contato = contatos.find(c => c.id === id);
+    });
   }*/
 }
