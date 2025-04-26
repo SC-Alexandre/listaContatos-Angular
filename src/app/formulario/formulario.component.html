@@ -1,0 +1,20 @@
+<h2>Cadastro de Contatos</h2>
+
+<!-- Campo Nome -->
+<input type="text" [(ngModel)]="name" placeholder="Digite o nome do contato">
+<br><br>
+
+<!-- Campo Email -->
+<input type="text" [(ngModel)]="email" placeholder="Digite email nome do contato">
+<br><br>
+
+<!-- Campo Telefone -->
+<input type="text" [(ngModel)]="phone" placeholder="Digite o telefone do contato">
+<br><br>
+
+<!-- Botão Salvar -->
+<button (click)="salvar()">Salvar</button>
+<br><br>
+
+<a routerLink="/formulario">Cadastrar Contato</a> |
+<a routerLink="/lista">Listar Contatos</a>
