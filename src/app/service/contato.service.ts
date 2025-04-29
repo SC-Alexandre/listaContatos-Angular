@@ -9,12 +9,11 @@ import {Observable} from 'rxjs';
 
 export class ContatoService {
   listaContatos: Contato[] = [];
-  private currentId: number = 1;
   url: string = 'http://localhost:8080';
 
   constructor(private http : HttpClient) { }
 
-  add(contato : Contato):Observable<Contato>{
+  add(contato: { id: number; phone: string; name: string; email: string }):Observable<Contato>{
     if (!contato.name || !contato.email || !contato.phone) {
       alert("Preencha todos os campos antes de salvar o contato.");
     }
@@ -29,21 +28,18 @@ export class ContatoService {
       alert("Telefone inválido. O telefone deve ter 10 ou 11 dígitos.");
     }
 
-    contato.number = this.currentId;
-
     return this.http.post<Contato>(this.url + '/contatos', contato);
-    this.listaContatos.push(contato)
-    this.currentId++;
+
   }
 
   remove(id : number):Observable<void>{
-    this.listaContatos = this.listaContatos.filter(contato=> contato.number !== id)
+    this.listaContatos = this.listaContatos.filter(contato=> contato.id !== id)
     return this.http.delete<void>(this.url + '/contatos/' + id);
   }
 
   filter(parametro: any){
     if(typeof(parametro) === 'number'){
-      return this.listaContatos.filter(contato=> contato.number === parametro);
+      return this.listaContatos.filter(contato=> contato.id === parametro);
     }else {
       return this.listaContatos.filter(contato => contato.name === parametro);
     }
