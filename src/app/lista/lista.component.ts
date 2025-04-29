@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Contato} from '../models/contato';
-import {ContatoService} from '../services/contato.service';
+import {ContatoService} from '../service/contato.service';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';

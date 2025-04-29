@@ -10,7 +10,7 @@ import {Router, RouterLink} from '@angular/router';
   styleUrl: './formulario.component.css'
 })
 export class FormularioComponent {
-  id: number = 0;
+  number: number = 0;
   name: string = '';
   email: string = '';
   phone: string = '';
@@ -18,7 +18,7 @@ export class FormularioComponent {
   constructor(private service : ContatoService, private router: Router) {}
 
   salvar() {
-    this.service.add({id:this.id, name:this.name, email:this.email, phone: this.phone})
+    this.service.add({number:this.number, name:this.name, email:this.email, phone: this.phone})
       .subscribe(res => {
         console.log(res);
         this.router.navigateByUrl("/lista");

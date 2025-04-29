@@ -13,7 +13,7 @@ export class ContatoService {
 
   constructor(private http : HttpClient) { }
 
-  add(contato: { id: number; phone: string; name: string; email: string }):Observable<Contato>{
+  add(contato: { number: number; phone: string; name: string; email: string }):Observable<Contato>{
     if (!contato.name || !contato.email || !contato.phone) {
       alert("Preencha todos os campos antes de salvar o contato.");
     }
@@ -33,13 +33,13 @@ export class ContatoService {
   }
 
   remove(id : number):Observable<void>{
-    this.listaContatos = this.listaContatos.filter(contato=> contato.id !== id)
+    this.listaContatos = this.listaContatos.filter(contato=> contato.number !== id)
     return this.http.delete<void>(this.url + '/contatos/' + id);
   }
 
   filter(parametro: any){
     if(typeof(parametro) === 'number'){
-      return this.listaContatos.filter(contato=> contato.id === parametro);
+      return this.listaContatos.filter(contato=> contato.number === parametro);
     }else {
       return this.listaContatos.filter(contato => contato.name === parametro);
     }
