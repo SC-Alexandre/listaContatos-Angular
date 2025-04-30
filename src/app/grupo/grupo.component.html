@@ -1,1 +1,30 @@
-<p>grupo works!</p>
+<h2>Cadastro de Grupos</h2>
+
+<p-floatlabel>
+  <input id="nome" pInputText [(ngModel)]="name" />
+  <label for="nome">Nome do Grupo</label>
+</p-floatlabel>
+<br>
+
+ Botão Salvar
+<p-button label="salvar"(click)="salvar()" />
+<br><br>
+<!--
+<p-table [value]="listaGrupos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template  pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Grupo</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-grupo>
+    <tr>
+      <td>{{ grupo.id }}</td>
+      <td>{{ grupo.name }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+-->

@@ -1,8 +1,8 @@
 export interface Contato {
-  number: number;
+  id?: number;
   name: string;
   email: string;
   phone: string;
-  groups: string[];
-  isFavorite: boolean;
+  //groups: string[];
+  //isFavorite: boolean;
 }

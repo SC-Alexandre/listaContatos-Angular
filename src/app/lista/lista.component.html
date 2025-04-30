@@ -1,13 +1,28 @@
 <h2>Lista de Contatos</h2>
 
-<div *ngIf="listaContatos.length === 0">
-  Nenhum Contato cadastrado
-</div>
-
-<ul>
-  <li *ngFor="let contato of listaContatos">{{contato.number}},{{contato.name}}, {{contato.phone}} {{contato.email}}<button (click)="deletar(contato.number)">Deletar</button> | <button (click)="detalhar(contato.number)">Detalhar</button></li>
-</ul>
+<p-table [value]="listaContatos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template  pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-contato>
+    <tr>
+      <td>{{ contato.id }}</td>
+      <td>{{ contato.name }}</td>
+      <td>{{ contato.email }}</td>
+      <td>{{ contato.phone }}</td>
+      <td>
+        <p-button label="Deletar" (click)="deletar(contato.id)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
 
 <a routerLink="/formulario">Cadastrar Contato</a> |
-<a routerLink="/lista">Listar Contatos</a>
+<a routerLink="/lista">Listar Contatos</a> |
 <a routerLink="/grupo">Novo Grupo</a>

@@ -24,14 +24,6 @@ export class GrupoService {
     return this.http.delete<void>(this.url + '/grupos/' + id);
   }
 
-  filter(parametro: any){
-    if(typeof(parametro) === 'number'){
-      return this.listaGrupos.filter(grupo=> grupo.id === parametro);
-    }else {
-      return this.listaGrupos.filter(grupo => grupo.name === parametro);
-    }
-  }
-
   findAll():Observable<Grupo[]>{
     return this.http.get<Grupo[]>(this.url + '/grupos')
   }

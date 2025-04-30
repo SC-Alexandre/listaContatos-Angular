@@ -11,6 +11,7 @@ yarn.lock
 # Angular build outputs
 dist/
 .out-tsc/
+.angular/cache/
 
 # IDEs e editores
 .idea/
