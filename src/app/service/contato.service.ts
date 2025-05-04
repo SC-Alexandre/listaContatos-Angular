@@ -37,6 +37,10 @@ export class ContatoService {
     return this.http.delete<void>(this.url + '/contatos/' + id);
   }
 
+  update(contato: Contato): Observable<Contato>{
+    return this.http.put<Contato>(this.url + '/contatos', contato);
+  }
+
   findAll():Observable<Contato[]>{
     return this.http.get<Contato[]>(this.url + '/contatos')
   }

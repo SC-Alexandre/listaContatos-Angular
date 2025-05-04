@@ -23,6 +23,10 @@ export class GrupoService {
     this.listaGrupos = this.listaGrupos.filter(grupo=> grupo.id !== id)
     return this.http.delete<void>(this.url + '/grupos/' + id);
   }
+  
+  update(grupo: Grupo): Observable<Grupo> {
+    return this.http.put<Grupo>(this.url+ '/grupos', grupo);
+  }
 
   findAll():Observable<Grupo[]>{
     return this.http.get<Grupo[]>(this.url + '/grupos')
