@@ -16,6 +16,7 @@ dist/
 # IDEs e editores
 .idea/
 .vscode/
+nbproject/
 *.suo
 *.ntvs*
 *.njsproj

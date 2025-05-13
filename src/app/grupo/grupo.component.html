@@ -1,3 +1,5 @@
+<p-menubar [model]="items" />
+
 <h2>Cadastro de Grupos</h2>
 
 <p-floatlabel>
@@ -6,25 +8,30 @@
 </p-floatlabel>
 <br>
 
- Botão Salvar
 <p-button label="salvar"(click)="salvar()" />
 <br><br>
-<!--
+
 <p-table [value]="listaGrupos" [tableStyle]="{ 'min-width': '50rem' }">
-  <ng-template  pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <th>Grupo</th>
-      <th>Email</th>
-      <th>Telefone</th>
-      <th></th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-grupo>
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+    </ng-template>
+  <ng-template #body let-grupo>
     <tr>
       <td>{{ grupo.id }}</td>
       <td>{{ grupo.name }}</td>
+      <td>
+        <button pButton
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger"
+                style="margin-left: 0.5em"
+                (click)="deletar(grupo.id)">
+        </button>
+      </td>
     </tr>
   </ng-template>
 </p-table>
--->

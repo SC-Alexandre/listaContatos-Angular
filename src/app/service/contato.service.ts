@@ -44,4 +44,8 @@ export class ContatoService {
   findAll():Observable<Contato[]>{
     return this.http.get<Contato[]>(this.url + '/contatos')
   }
+
+  atualizarFavorito(id:number, favorito:boolean):Observable<Contato>{
+    return this.http.patch<Contato>(this.url + `/contatos/${id}/favorito`,{favorito: favorito});
+  }
 }

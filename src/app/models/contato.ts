@@ -5,6 +5,6 @@ export interface Contato {
   name: string;
   email: string;
   phone: string;
-  groups: Grupo[];
-  favorite?: boolean;
+  grupo?: Grupo[];
+  favorito?: boolean;
 }
